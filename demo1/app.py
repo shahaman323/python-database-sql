@@ -29,7 +29,7 @@ class Flipkart:
         email = input("Enter the email")
         password = input("Enter the password")
 
-        response = self.db.register(name,email,password)
+        response = self.db.register(name, email, password)
 
         if response:
             print("Registration successful")
@@ -38,6 +38,17 @@ class Flipkart:
 
         self.menu()
 
+    def login(self):
+        email = input("Enter email")
+        password = input("Enter password")
+
+        data = self.db.search(email, password)
+
+        if len(data) == 0:
+            print("Incorrect email/password")
+            self.login()
+        else:
+            print("Hello", data[0][1])
 
 
 obj = Flipkart()
