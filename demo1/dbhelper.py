@@ -33,4 +33,3 @@ class DBhelper:
         data = self.mycursor.fetchall()
 
         return data
-
